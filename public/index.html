@@ -1656,31 +1656,20 @@
 
             try {
                 console.log('Sending login request...');
-                const response = await fetch('https://mtier-qa.flyfrontier.com/support/api/v1/auth/anonymouslogin', {
-                                  method: 'POST',
-                                  headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': 'Bearer <your-token>',
-                                    'Ocp-Apim-Subscription-Key': OCP_Sub_Key
-                                  },
-                                  body: JSON.stringify({ username, password }),
-                                });
-
-                    
-                    //await fetch(`${API_BASE}/auth/login`, {
-                    //method: 'POST',
-                    //headers: {
-                        //'Accept': 'text/plain',
-                        //'Content-Type': 'application/json',
-                        //'x-api-version': '1.0',
-                        //'Access-Control-Allow-Origin': 'https://gray-forest-086582d10.3.azurestaticapps.net',
-                        //'Access-Control-Allow-Methods': ['GET', 'POST', 'OPTIONS'],
-                        //'Access-Control-Allow-Credentials': true,
-                        //'Ocp-Apim-Subscription-Key':  OCP_Sub_Key,
-                    //},
-                    //body: JSON.stringify({username, password})
+                const response =await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'text/plain',
+                        'Content-Type': 'application/json',
+                        'x-api-version': '1.0',
+                        'Access-Control-Allow-Origin': 'https://gray-forest-086582d10.3.azurestaticapps.net',
+                        'Access-Control-Allow-Methods': ['GET', 'POST', 'OPTIONS'],
+                        'Access-Control-Allow-Credentials': true,
+                        'Ocp-Apim-Subscription-Key':  OCP_Sub_Key,
+                    },
+                    body: JSON.stringify({username, password})
                     // username, password
-                //});
+                });
                 
                 console.log('Login response status:', response.status);
                 
